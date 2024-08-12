@@ -5,13 +5,22 @@
 Machine learning is a type of artificial intelligence that enables computers to learn from data.
 It focuses on algorithms without the need of explicit programming,
 
-### Fields (overlapp)
+### Fields
 
 There are three major fields that often overlap.
 
 AI (Artificial intelligence): Enable computers to perform human-like tasks/behaviors  
 ML (Machine Learning): Make predictions and solve specific problems using data - subset of AI  
 DS (Data Science): Draw insights from data - could use ML
+
+### Loss
+
+The loss is the difference between prediciton and actual label.  
+How far is the output from the truth? The smaller the loss, the better performing is the model.
+
+#### Functions
+
+$$L_1 = \sum|y_{real} - y_{predicted}|$$
 
 ## Supervised Learning
 
@@ -70,8 +79,6 @@ To assess how well the model can generalize, it is usually split up into 3 datas
 - Training: Model improves by calculating the loss and learning from it
 - Validation: Acts as a reality check, to see if the model can handle unseen data. The loss doesn't get fed back into it.
 - Testing: Last check on how the final chosen model performs, based on the loss
-
-_Loss: How far is the output from the truth. The smaller the loss, the better performing is the model._
 
 ## Unsupervised Learning
 
