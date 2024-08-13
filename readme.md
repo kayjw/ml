@@ -2,10 +2,21 @@
 
 > **_Work in Progress_**
 
-Machine learning is a type of artificial intelligence that enables computers to learn from data.
-It focuses on algorithms without the need of explicit programming,
+1. [Definition](#definition)
+2. [Loss](#loss)
+3. [Accuracy](#accuracy)
+4. [Model](#model)
+5. [Data Splitting](#data-splitting)
+6. [Supervised Learning](#supervised-learning)
+7. [Unsupervised Learning](#unsupervised-learning)
+8. [Reinforcement Learning](#reinforcement-learning)
 
-## Fields
+## Definition
+
+Machine learning is a type of artificial intelligence that enables computers to learn from data.
+It focuses on algorithms without the need of explicit programming.
+
+### Fields
 
 There are three major fields that often overlap.
 
@@ -75,7 +86,7 @@ A.K.A prediction
 - Regression
   - Continuous values - e.g. Stock price
 
-### Data Splitting
+## Data Splitting
 
 A model isn't trained on all data, because that way you couldn't know how it performs on unseen data. It might perform great on training data, because it has seen it over and over again, but make bad assumptions on new information.  
 To assess how well the model can generalize, it is usually split up into 3 datasets:
