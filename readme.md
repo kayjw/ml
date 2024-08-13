@@ -21,6 +21,7 @@ How far is the output from the truth? The smaller the loss, the better performin
 #### Functions
 
 $$L_1 = \sum|y_{real} - y_{predicted}|$$
+_The further off the prediction, the greater the loss._
 
 ## Supervised Learning
 
