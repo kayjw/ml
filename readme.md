@@ -1,5 +1,7 @@
 # Machine Learning
 
+> **_Work in Progress_**
+
 ## Definition
 
 Machine learning is a type of artificial intelligence that enables computers to learn from data.
@@ -41,6 +43,8 @@ E.g. Picture A is a dog, picture B a cat.
 Input -> Model -> Output
 
 _Input is also called "feature vector" and output is known as "prediction"._
+
+Learn more about [models](models.md).
 
 ### Input Types
 
