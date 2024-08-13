@@ -93,3 +93,11 @@ An agent takes actions in an interactive environment, in order to maximize a rew
 It learns by trial and error and from the feedback (rewards and penalties) it receives.
 
 E.g. This chess move was successfull, maybe use it next time as well.
+
+## Common File Formats
+
+- CSV: Tabular with header row  
+  `id,type,quantity\n0,books,3\n1,pens,5`
+
+- JSON: Tree-like with multiple layers  
+  `{[{"id": 0, "type": "books", "quantity": 3}, {"id": 1, "type": "pens", "quantity": 5}]}`
