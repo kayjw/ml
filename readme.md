@@ -23,6 +23,13 @@ How far is the output from the truth? The smaller the loss, the better performin
 $$L_1 = \sum|y_{real} - y_{predicted}|$$
 _The further off the prediction, the greater the loss._
 
+$$L_2 = \sum (y_{real} - y_{predicted})^2$$
+_Minimal penalty for small misses, much higher loss for bigger ones - quadratic formula._
+
+### Accuracy
+
+Indicates what proportion of the predictions were correct.
+
 ## Supervised Learning
 
 Uses inputs with corresponding outputs to train - labeled inputs.
