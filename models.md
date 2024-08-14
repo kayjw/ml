@@ -1,5 +1,7 @@
 # Models
 
+> **_Visit my [Google Colab](https://colab.research.google.com/drive/1YwWtER1868bgalxbipt1o_y0Gcr-tigB?usp=sharing) to see some of the models in action._**
+
 Supervised learning models can be categorized into two main types:
 
 - Classification: Categorial outputs - multiclass or binary
@@ -7,7 +9,7 @@ Supervised learning models can be categorized into two main types:
 
 ## Classification
 
-### _k_-Nearest Neighbors (KNN)
+### _k_-Nearest Neighbors (kNN)
 
 > **_Assumption:_** Objects that are near each other are similar.
 

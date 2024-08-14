@@ -1,6 +1,6 @@
 # Machine Learning
 
-> **_Work in Progress_**
+> **_Visit my [Google Colab](https://colab.research.google.com/drive/1YwWtER1868bgalxbipt1o_y0Gcr-tigB?usp=sharing) for practical examples._**
 
 1. [Definition](#definition)
 2. [Loss](#loss)
