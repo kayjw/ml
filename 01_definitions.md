@@ -25,7 +25,7 @@
 | Training/Learning | In order to learn, the labels (results) are extracted from the data. Then, each row is fed into the model, which comes up with a prediction. This prediction gets compared with the true value. Based on the loss - difference between prediction and actual result - the model makes adjustmens. That's what's called training. |
 | Training Data | Data used to fit the model |
 | Loss | The loss is the difference between prediciton and actual label. How far is the output from the truth? The smaller the loss, the better performing is the model. |
-| Accuracy | Indicates what proportion of the predictions were correct. |
+| Accuracy | Indicates what proportion of the predictions were correct. |
 | MAE | Mean Absolute Error - average of the absolute differences between predictions and actual values. |
 | X | Input data - features. |
 | y | Labels/Results - true values associated with input data. |
