@@ -17,8 +17,8 @@
 | **Structure** |
 | Process | Input -> Model -> Output |
 | **Terms** |
-| Input/Feature/Feature Vector |  |
-| Model | Function which takes input data and gives a prediction |
+| Input/Feature/Feature Vector | Data which is fed into the model. |
+| Model | Function which takes input data and gives a prediction. |
 | Output/Prediction | Prediction made by the model, based on the input data. |
 | Labels/Results | True values associated with input data. |
 | Fitting | Process of adjusting the model's parameters to best explain the data. |
