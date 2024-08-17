@@ -1,6 +1,4 @@
-# Models
-
-> **_Visit my [Google Colab](https://colab.research.google.com/drive/1YwWtER1868bgalxbipt1o_y0Gcr-tigB?usp=sharing) to see some of the models in action._**
+# Model Types
 
 Supervised learning models can be categorized into two main types:
 
