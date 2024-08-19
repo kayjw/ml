@@ -23,7 +23,7 @@ _By Paolo Bonfini - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/inde
 
 Classifies based on the highest probability of belonging to a class by calculating the probabilites all features.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/ROC_curves.svg/1920px-ROC_curves.svg.png" width="350" alt="native bayes" style="background-color: white;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/ROC_curves.svg/1920px-ROC_curves.svg.png" width="350" alt="native bayes" style="background-color: lightgray;" />
 
 _By Sharpr for svg version. original work by kakau in a png - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=44059691_
 
@@ -57,7 +57,7 @@ _By Krishnavedala - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/inde
 
 Dataset is divided using a hyperplane, which should linearly separate the classes and have the largest margin between them.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Svm_separating_hyperplanes_%28SVG%29.svg/2560px-Svm_separating_hyperplanes_%28SVG%29.svg.png" width="350" alt="svn" style="background-color: white;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Svm_separating_hyperplanes_%28SVG%29.svg/2560px-Svm_separating_hyperplanes_%28SVG%29.svg.png" width="350" alt="svn" style="background-color: lightgray;" />
 
 _By User:ZackWeinberg, based on PNG version by User:Cyc - This file was derived from: Svm separating hyperplanes.png, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=22877598_
 
