@@ -5,9 +5,8 @@ This repository serves as a collection of notes, examples, and tutorials on mach
 ## Table of Contents
 
 1. [Definitions](01_definitions.md)
-2. [Data](02_data.md)
-3. [Model](03_model.md)
-4. [Model Types](04_model-types.md)
+2. [Model](02_model.md)
+3. [Model Types](03_model-types.md)
 
 ## Running Example
 
