@@ -318,7 +318,7 @@ Bad (0) < OK (1) < Good (2) < Great (3)
 ```py
 from sklearn.preprocessing import OrdinalEncoder
 
-# copy to avoid changing original data 
+# copy to avoid changing original data
 label_X_train = X_train.copy()
 label_X_valid = X_valid.copy()
 
@@ -327,7 +327,7 @@ ordinal_encoder = OrdinalEncoder()
 label_X_train[object_cols] = ordinal_encoder.fit_transform(X_train[object_cols])
 label_X_valid[object_cols] = ordinal_encoder.transform(X_valid[object_cols])
 
-print("Ordinal MAE:") 
+print("Ordinal MAE:")
 print(score_dataset(label_X_train, label_X_valid, y_train, y_valid))
 ```
 
@@ -379,7 +379,7 @@ OH_X_valid = pd.concat([num_X_valid, OH_cols_valid], axis=1)
 OH_X_train.columns = OH_X_train.columns.astype(str)
 OH_X_valid.columns = OH_X_valid.columns.astype(str)
 
-print("One-Hote Encoding MAE:") 
+print("One-Hote Encoding MAE:")
 print(score_dataset(OH_X_train, OH_X_valid, y_train, y_valid))
 ```
 
@@ -388,17 +388,98 @@ print(score_dataset(OH_X_train, OH_X_valid, y_train, y_valid))
 Pipelines are a way to chain multiple data transformation and model steps together.  
 The data flows through the pipeline and the steps are applied in order.
 
-### 1. Define Preprocessing Steps
+### Preprocessing Steps
 
-### 2. Define Model
+`ColumnTransformer` is a class which is used to bundle together preprocessing steps.  
+The example below imputs missing values in numerical, and applies one-hot encoding to categorical data.
 
-### 3. Create and Evaluate Pipeline
+```py
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import OneHotEncoder
 
+# preprocessing for numerical data
+numerical_transformer = SimpleImputer(strategy='constant')
 
-## Cross Validation
+# preprocessing for categorical data
+categorical_transformer = Pipeline(steps=[
+    ('imputer', SimpleImputer(strategy='most_frequent')),
+    ('onehot', OneHotEncoder(handle_unknown='ignore'))
+])
+
+# bundle preprocessing for numerical and categorical data
+preprocessor = ColumnTransformer(
+    transformers=[
+        ('num', numerical_transformer, numerical_cols),
+        ('cat', categorical_transformer, categorical_cols)
+    ])
+```
+
+### Model
+
+Of course you need a model to train.
+
+```py
+from sklearn.ensemble import RandomForestRegressor
+model = RandomForestRegressor(n_estimators=100, random_state=0)
+```
+
+### Create and Evaluate the Pipeline
+
+Then the `Pipeline` class is used to define a pipeline. Using this pipeline, the preprocessing and fitting can be done in a single line of code, which makes it very readable and easy to use.
+
+```py
+from sklearn.metrics import mean_absolute_error
+
+# bundle preprocessing and modeling code in a pipeline
+my_pipeline = Pipeline(steps=[('preprocessor', preprocessor),
+                              ('model', model)
+                             ])
+
+# preprocessing of training data, fit model
+my_pipeline.fit(X_train, y_train)
+
+# preprocessing of validation data, get predictions
+preds = my_pipeline.predict(X_valid)
+
+# evaluate the model
+score = mean_absolute_error(y_valid, preds)
+print('MAE:', score)
+```
+
+## Cross-Validation
+
+Cross-validation is a technique where the modeling process is repeated on different subsets of the data.  
+The data is split into multiple subsets called "folds". E.g. 4 folds, which hold 25% each of the full data.  
+Each of the folds is then used once as the validation, and the other 3 times as the training set.
+
+Advantage: Accurate measure of model quality  
+Disadvantage: Takes long to run
+
+Use it for small datasets, which would run for a couple of minutes or less. Where you already have enough data, there is no need to re-use some of it.
+
+```py
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+from sklearn.model_selection import cross_val_score
+
+my_pipeline = Pipeline(steps=[('preprocessor', SimpleImputer()),
+                              ('model', RandomForestRegressor(n_estimators=50,
+                                                              random_state=0))
+                             ])
+
+# -1 since sklearn calculates negative MAE
+scores = -1 * cross_val_score(my_pipeline, X, y,
+                              cv=5,
+                              scoring='neg_mean_absolute_error')
+
+print("MAE:\n", scores)
+```
 
 ## Missing Values
 
 ## XGBoost
 
-## Data leakage
+## Data Leakage
