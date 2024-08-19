@@ -478,8 +478,71 @@ scores = -1 * cross_val_score(my_pipeline, X, y,
 print("MAE:\n", scores)
 ```
 
-## Missing Values
-
 ## XGBoost
+
+Gradient boosting is a very successful algorithm. This method goes through cycles and iteratively adds models to an ensemble.  
+The cycle looks like this:
+
+1. An ensemble of models generates predictions for the dataset.
+2. Loss function is calculated based on those predictions.
+3. A new model gets fit based on the loss function.
+4. This new model gets added to the ensemble.
+5. Process is repeated.
+
+```py
+from xgboost import XGBRegressor
+from sklearn.metrics import mean_absolute_error
+
+model = XGBRegressor()
+model.fit(X_train, y_train)
+
+predictions = model.predict(X_valid)
+print("MAE: " + str(mean_absolute_error(predictions, y_valid)))
+```
+
+### Parameters
+
+#### n_estimators
+
+Defines cycle amount (be aware of under-/overfitting).
+
+```py
+model = XGBRegressor(n_estimators=500)
+```
+
+(Typically values from 100-1000.)
+
+#### early_stopping_rounds
+
+Enables the model to find the ideal value for `n_estimators` by stopping early when the scores stop improving.
+
+```py
+model.fit(X_train, y_train,
+             early_stopping_rounds=10,
+             eval_set=[(X_valid, y_valid)],
+             verbose=False)
+```
+
+This can be combined with a higher `n_estimators` value to find the optimal cycle amount.
+
+#### learning_rate
+
+Predicitons from each model are not just added up, but multiplied by a small number called learning rate.  
+Therefore each tree has a smaller effect on the predictions, which can help prevent overfitting.
+
+Small learning rates create more accurate models, but have longer training times due to the higher amount of iterations.
+
+```py
+model = XGBRegressor(n_estimators=500, learning_rate=0.05) # default = 0.1
+```
+
+#### n_jobs
+
+This paramater has no effect on the resulting model, but it can be used to speed up the training process.
+With large data the runtime can be decrased by using parallel processing. On small datasets, this will not have an impact.
+
+```py
+model = XGBRegressor(n_estimators=500, learning_rate=0.05, n_jobs=4)
+```
 
 ## Data Leakage
