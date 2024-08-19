@@ -546,3 +546,6 @@ model = XGBRegressor(n_estimators=500, learning_rate=0.05, n_jobs=4)
 ```
 
 ## Data Leakage
+
+It could happen that the model performs great on the training and even validation data, but bad in production.  
+This might be cause by data leakage. This happens, when the training set contains information about the target - which will not be avaliable when the model is used on real data. 
