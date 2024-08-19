@@ -66,7 +66,7 @@
 A loss function is a mathematical function that measures the difference between the predicted output and the real output of a model. It is used to quantify the error between the expected and the actual results.  
 Here are three commonly used loss functions.
 
-### Mean Absolute Error (MAE)
+### Mean Absolute Error (MAE)
 
 The further off the prediction, the greater the loss:
 
